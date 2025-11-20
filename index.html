@@ -59,6 +59,95 @@
         object-fit: contain; /* Ensures the whole image is visible without cropping, filling with background if needed */
         display: block;
       }
+
+      /* -------------------------
+         Mobile-only safety overrides
+         (only applied at max-width: 767px)
+         - Hides large visuals on phones
+         - Makes remaining images responsive
+         - Shows the nav (stacks links) so mobile is navigable
+         - Keeps desktop intact (all rules are inside the media query)
+         ------------------------- */
+      @media (max-width: 767px) {
+        /* Hide big/hero images and **THE LOGO** that break mobile layout */
+        .hero-image,
+        .full-fit-image,
+        .full-fit-contain-image,
+        img[src$="herocover.png"],
+        img[src$="herocover.jpg"],
+        img[src$="herocover.jpeg"],
+        img[src$="intro.png"],
+        img[src$="empower.png"],
+        img[src$="marketgap.png"],
+        img[src$="turth.png"],
+        img[src$="benefits.png"],
+        img[src$="noexcuse.png"],
+        img[src$="bold.png"],
+        img[src$="pedagogy.png"],
+        img[src$="outline.png"],
+        img[src$="logo.jpeg"] { 
+          display: none !important;
+        }
+
+        /* Make any remaining images responsive */
+        img {
+          max-width: 100% !important;
+          height: auto !important;
+          display: block;
+        }
+
+        /* Reveal the nav on mobile and make links stack vertically for readability */
+        nav.hidden {
+          display: block !important;
+        }
+        nav.hidden a {
+          display: block;
+          padding: 0.5rem 0;
+          color: #374151;
+        }
+        /* Small header padding so the logo/title doesn't hug edges */
+        header .container {
+          padding-left: 1rem;
+          padding-right: 1rem;
+        }
+
+        /* Reduce extremely large headings to a readable mobile size (only on phones) */
+        h1 {
+          font-size: 2.25rem !important; /* ~36px */
+          line-height: 1.05 !important;
+        }
+        h2 {
+          font-size: 1.75rem !important; /* ~28px */
+        }
+
+        /* Force multi-column flex layouts to stack vertically on mobile, without touching desktop classes */
+        .flex[class*="md:flex-row"],
+        .flex[class*="lg:flex-row"],
+        .flex[class*="md:flex-row"],
+        .flex[class*="lg:flex-row"] {
+          flex-direction: column !important;
+        }
+
+        /* Make 1/2 width columns full width on mobile */
+        .w-1\/2 {
+          width: 100% !important;
+        }
+
+        /* Make CTAs / buttons stretch full width for easy tapping */
+        .w-full, .container a, .container button {
+          -webkit-tap-highlight-color: transparent;
+        }
+
+        /* Minor text-size / padding adjustments to keep content readable */
+        .text-6xl { font-size: 2.25rem !important; }
+        .text-5xl { font-size: 1.75rem !important; }
+        .text-4xl { font-size: 1.5rem !important; }
+
+        /* Prevent unexpected horizontal scrolling due to large containers */
+        body {
+          -webkit-text-size-adjust: 100%;
+        }
+      }
     </style>
   </head>
 
@@ -141,8 +230,7 @@
       <h2 class="text-5xl font-extrabold text-black tracking-tight" style="font-weight:900;">
         PRESENTATION OUTLINE
       </h2>
-      <!-- underline removed as requested -->
-    </div>
+      </div>
 
     <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
       <div class="w-full lg:w-1/2">
@@ -214,9 +302,7 @@
       <div class="w-20 h-1 bg-secondary mx-auto mt-3 rounded-full"></div>
     </div>
 
-    <!-- Layout: left = text, right = image + logo -->
     <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-      <!-- LEFT: Text -->
       <div class="w-full md:w-1/2">
         <div class="p-6 sm:p-8 bg-primary text-white rounded-2xl shadow-lg border-b-4 border-secondary">
           <p class="text-xl sm:text-2xl font-semibold leading-snug uppercase">
@@ -238,9 +324,7 @@
         </div>
       </div>
 
-      <!-- RIGHT: Image + Logo -->
       <div class="w-full md:w-1/2 flex flex-col items-center md:items-end">
-        <!-- Image wrapper: keeps a consistent max height but doesn't force the image to stretch -->
         <div
           class="w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-secondary/20 flex items-center justify-center"
           style="max-height:50vh;"
@@ -253,7 +337,6 @@
           />
         </div>
 
-        <!-- Logo under the image, with controlled spacing -->
         <img
           src="logo.jpeg"
           alt="Surbhidhar Logo"
@@ -475,7 +558,6 @@
       </div>
 
       <div class="w-full lg:w-1/2 flex flex-col items-center mt-4 lg:mt-0">
-        <!-- Reduced height from 55vh → 45vh -->
         <div
           class="relative w-full lg:w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-primary/20"
           style="height: 45vh;"
@@ -488,8 +570,7 @@
           />
         </div>
 
-        <!-- Logo moved UP using -mt-3 -->
-       <img
+        <img
   src="logo.jpeg"
   alt="Surbhidhar Logo"
   class="w-48 h-auto rounded-lg shadow-xl border-2 border-white mt-3 ml-1 transform transition duration-300 hover:scale-105"
@@ -818,10 +899,10 @@
 
             <div class="text-center">
                 <h3 class="text-3xl font-blacker uppercase text-secondary mb-3">Call or WhatsApp</h3>
-                <p class="text-4xl sm:text-5xl **font-blacker** text-white leading-tight mb-1">
+                <p class="text-4xl sm:text-5xl font-blacker text-white leading-tight mb-1">
                     8077032938
                 </p>
-                <p class="text-4xl sm:text-5xl **font-blacker** text-white leading-tight">
+                <p class="text-4xl sm:text-5xl font-blacker text-white leading-tight">
                     8279401041
                 </p>
             </div>
@@ -848,7 +929,7 @@
         <img
             src="logo.jpeg"
             alt="Surbhidhar Educational Services Logo"
-            class="w-40 h-auto rounded-lg shadow-xl border-4 border-white **absolute bottom-4 left-4** transform transition duration-300 hover:scale-105"
+            class="w-40 h-auto rounded-lg shadow-xl border-4 border-white absolute bottom-4 left-4 transform transition duration-300 hover:scale-105"
             onerror="this.onerror=null; this.src='https://placehold.co/160x55/cccccc/333333?text=Logo+Space';"
         />
         
@@ -860,4 +941,4 @@
       </div>
     </footer>
   </body>
-</h
+</html>
