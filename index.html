@@ -2,10 +2,7 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta
-      name="viewport"
-      content="width=device-width, initial-scale=1.0"
-    />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Surbhidhar Educational Services</title>
 
     <script src="https://cdn.tailwindcss.com"></script>
@@ -17,13 +14,12 @@
               sans: ["Inter", "sans-serif"],
             },
             colors: {
-              primary: "#1e3a8a", // Dark Blue for branding
-              secondary: "#3b82f6", // Bright Blue for accents
-              "accent-light": "#60a5fa", // Lighter blue for gradients
+              primary: "#1e3a8a",
+              secondary: "#3b82f6",
+              "accent-light": "#60a5fa",
             },
-            // Custom font weight for even bolder text if needed
             fontWeight: {
-              blacker: 950, // Custom weight, even thicker than black (900)
+              blacker: 950,
             },
           },
         },
@@ -31,326 +27,177 @@
     </script>
 
     <style>
-      /* Custom styles for the hero image to ensure it covers the space and looks good */
-      .hero-image {
-        object-fit: cover;
-        width: 100%;
-        height: 100%;
-      }
+      
+      .hero-image { object-fit: cover; width: 100%; height: 100%; display:block; }
+      .gradient-text { background-clip: text; -webkit-background-clip: text; color: transparent; }
+      .full-fit-image { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .full-fit-contain-image { width: 100%; height: 100%; object-fit: contain; display: block; }
+      .site-logo { height: auto; width: 160px; max-width: 100%; display: inline-block; }
 
-      /* Gradient text effect - no longer applied to h1, but kept in case of future use */
-      .gradient-text {
-        background-clip: text;
-        -webkit-background-clip: text;
-        color: transparent;
-      }
-
-      /* Standardizing image fitting for containers */
-      .full-fit-image {
-        width: 100%;
-        height: 100%;
-        object-fit: cover; /* Ensures it fills the container without gaps */
-        display: block;
-      }
-
-      .full-fit-contain-image {
-        width: 100%;
-        height: 100%;
-        object-fit: contain; /* Ensures the whole image is visible without cropping, filling with background if needed */
-        display: block;
-      }
-
-      /* -------------------------
-         Mobile-only safety overrides
-         (only applied at max-width: 767px)
-         - Hides large visuals on phones
-         - Makes remaining images responsive
-         - Shows the nav (stacks links) so mobile is navigable
-         - Keeps desktop intact (all rules are inside the media query)
-         ------------------------- */
       @media (max-width: 767px) {
-        /* Hide big/hero images and **THE LOGO** that break mobile layout */
-        .hero-image,
-        .full-fit-image,
-        .full-fit-contain-image,
-        img[src$="herocover.png"],
-        img[src$="herocover.jpg"],
-        img[src$="herocover.jpeg"],
-        img[src$="intro.png"],
-        img[src$="empower.png"],
-        img[src$="marketgap.png"],
-        img[src$="turth.png"],
-        img[src$="benefits.png"],
-        img[src$="noexcuse.png"],
-        img[src$="bold.png"],
-        img[src$="pedagogy.png"],
-        img[src$="outline.png"],
-        img[src$="logo.jpeg"] { 
-          display: none !important;
-        }
-
-        /* Make any remaining images responsive */
-        img {
-          max-width: 100% !important;
+        [style*="height"], div[style*="height"] {
           height: auto !important;
-          display: block;
+          min-height: 0 !important;
         }
-
-        /* Reveal the nav on mobile and make links stack vertically for readability */
-        nav.hidden {
-          display: block !important;
+        .hero-wrapper { min-height: 180px !important; }
+        .hero-image, .full-fit-image, .full-fit-contain-image {
+          height: 100% !important;
+          object-fit: cover !important;
         }
-        nav.hidden a {
-          display: block;
-          padding: 0.5rem 0;
-          color: #374151;
-        }
-        /* Small header padding so the logo/title doesn't hug edges */
-        header .container {
-          padding-left: 1rem;
-          padding-right: 1rem;
-        }
-
-        /* Reduce extremely large headings to a readable mobile size (only on phones) */
-        h1 {
-          font-size: 2.25rem !important; /* ~36px */
-          line-height: 1.05 !important;
-        }
-        h2 {
-          font-size: 1.75rem !important; /* ~28px */
-        }
-
-        /* Force multi-column flex layouts to stack vertically on mobile, without touching desktop classes */
-        .flex[class*="md:flex-row"],
-        .flex[class*="lg:flex-row"],
-        .flex[class*="md:flex-row"],
-        .flex[class*="lg:flex-row"] {
-          flex-direction: column !important;
-        }
-
-        /* Make 1/2 width columns full width on mobile */
-        .w-1\/2 {
-          width: 100% !important;
-        }
-
-        /* Make CTAs / buttons stretch full width for easy tapping */
-        .w-full, .container a, .container button {
-          -webkit-tap-highlight-color: transparent;
-        }
-
-        /* Minor text-size / padding adjustments to keep content readable */
-        .text-6xl { font-size: 2.25rem !important; }
-        .text-5xl { font-size: 1.75rem !important; }
-        .text-4xl { font-size: 1.5rem !important; }
-
-        /* Prevent unexpected horizontal scrolling due to large containers */
-        body {
-          -webkit-text-size-adjust: 100%;
-        }
+        .site-logo { width: 110px !important; }
+        h1 { font-size: 2.25rem !important; line-height: 1.05 !important; }
+        h2 { font-size: 1.75rem !important; }
       }
     </style>
   </head>
 
   <body class="font-sans bg-gray-50">
+    
     <header class="bg-white shadow-lg sticky top-0 z-10">
       <div class="container mx-auto px-4 py-4 flex justify-between items-center">
-        <a
-          href="#"
-          class="text-3xl sm:text-4xl font-black text-primary tracking-tight drop-shadow-md transition duration-300 hover:text-secondary hover:drop-shadow-lg"
-        >
+        <a href="#" class="text-3xl sm:text-4xl font-black text-primary tracking-tight drop-shadow-md">
           SURBHIDHAR EDUCATIONAL SERVICES
         </a>
         <nav class="hidden sm:block">
-          <a
-            href="#introduction"
-            class="text-gray-600 hover:text-primary px-3 py-2 rounded-lg transition duration-300"
-            >Introduction</a
-          >
-          <a
-            href="#outline"
-            class="text-gray-600 hover:text-primary px-3 py-2 rounded-lg transition duration-300"
-            >Outline</a
-          >
-          <a
-            href="#program"
-            class="text-gray-600 hover:text-primary px-3 py-2 rounded-lg transition duration-300"
-            >Program</a
-          >
-          <a
-            href="#contact"
-            class="text-gray-600 hover:text-primary px-3 py-2 rounded-lg transition duration-300"
-            >Contact</a
-          >
+          <a href="#introduction" class="text-gray-600 hover:text-primary px-3 py-2">Introduction</a>
+          <a href="#outline" class="text-gray-600 hover:text-primary px-3 py-2">Outline</a>
+          <a href="#program" class="text-gray-600 hover:text-primary px-3 py-2">Program</a>
+          <a href="#contact" class="text-gray-600 hover:text-primary px-3 py-2">Contact</a>
         </nav>
       </div>
     </header>
 
-    <section
-      class="relative min-h-[90vh] bg-white pt-16 pb-12 sm:pt-20 sm:pb-16 flex items-center overflow-hidden"
-    >
+
+    <!-- HERO SECTION -->
+    <section class="relative min-h-[90vh] bg-white pt-16 pb-12 sm:pt-20 sm:pb-16 flex items-center overflow-hidden">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div class="flex flex-col md:flex-row items-center justify-between gap-10 lg:gap-32">
-          <div
-            class="w-full md:w-1/2 order-2 md:order-1 text-center flex flex-col items-center justify-center"
-          >
-            <h1
-              class="text-6xl sm:text-7xl lg:text-8xl font-blacker leading-tight mb-6 text-secondary"
-            >
+
+          <div class="w-full md:w-1/2 order-2 md:order-1 text-center flex flex-col items-center justify-center">
+            <h1 class="text-6xl sm:text-7xl lg:text-8xl font-blacker leading-tight mb-6 text-secondary">
               SCHOOL EMPOWERMENT
             </h1>
 
-            <img
-              src="logo.jpeg"
-              alt="Surbhidhar Educational Services Logo"
-              class="w-96 h-auto rounded-lg shadow-xl border-2 border-white mt-6 transform transition duration-300 hover:scale-105"
-              onerror="this.onerror=null; this.src='https://placehold.co/200x80/cccccc/333333?text=Logo+Unavailable';"
-            />
+            <img src="logo.jpeg"
+                 alt="Surbhidhar Educational Services Logo"
+                 class="site-logo w-96 h-auto rounded-lg shadow-xl border-2 border-white mt-6" />
           </div>
 
           <div class="w-full md:w-1/2 order-1 md:order-2">
-            <div
-              class="relative rounded-2xl overflow-hidden shadow-2xl transform transition duration-500 hover:shadow-primary/50 hover:scale-[1.01]"
-            >
-              <img
-                src="herocover.png"
-                alt="A group of diverse people collaborating and smiling, symbolizing school empowerment and growth."
-                class="hero-image h-98 sm:h-[40rem] w-full object-cover"
-                onerror="this.onerror=null; this.src='https://placehold.co/800x600/cccccc/333333?text=Image+Unavailable';"
-              />
-              <span class="sr-only">Image illustrating collaborative education and success.</span>
+            <div class="relative rounded-2xl overflow-hidden shadow-2xl hero-wrapper">
+              <picture>
+                <source media="(max-width:767px)" srcset="herocover.webp">
+                <img src="herocover.png"
+                     alt="Hero"
+                     class="hero-image h-98 sm:h-[40rem] w-full object-cover" />
+              </picture>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+        <!-- OUTLINE SECTION -->
+    <section id="outline" class="py-12 bg-gray-50">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-12">
+          <h2 class="text-5xl font-extrabold text-black tracking-tight" style="font-weight:900;">
+            PRESENTATION OUTLINE
+          </h2>
+        </div>
+
+        <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
+          <div class="w-full lg:w-1/2">
+            <ol class="space-y-6 text-lg list-none p-0">
+              <li class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary text-gray-900 font-extrabold">
+                <span class="font-bold text-primary mr-3">1.</span> INTRODUCTION
+              </li>
+              <li class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary text-gray-900 font-extrabold">
+                <span class="font-bold text-primary mr-3">2.</span> WHY SCHOOLS CHOOSE US
+              </li>
+              <li class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary text-gray-900 font-extrabold">
+                <span class="font-bold text-primary mr-3">3.</span> A BOLD REVOLUTION
+              </li>
+              <li class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary text-gray-900 font-extrabold">
+                <span class="font-bold text-primary mr-3">4.</span> EXCUSES
+              </li>
+              <li class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary text-gray-900 font-extrabold">
+                <span class="font-bold text-primary mr-3">5.</span> ADDED BENEFITS
+              </li>
+            </ol>
+
+            <img src="logo.jpeg"
+                 alt="Surbhidhar Logo"
+                 class="site-logo w-48 h-auto rounded-lg shadow-xl border-2 border-white ml-12 mt-2" />
+          </div>
+
+          <div class="w-full lg:w-1/2 order-first lg:order-none">
+            <div class="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl bg-gray-50 border-4 border-primary/20">
+              <picture>
+                <source media="(max-width:767px)" srcset="outline.webp">
+                <img src="outline.png"
+                     alt="Presentation Outline"
+                     class="full-fit-contain-image p-4" />
+              </picture>
             </div>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="outline" class="py-12 bg-gray-50">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-12">
-      <h2 class="text-5xl font-extrabold text-black tracking-tight" style="font-weight:900;">
-        PRESENTATION OUTLINE
-      </h2>
-      </div>
 
-    <div class="flex flex-col lg:flex-row gap-12 lg:gap-20 items-start">
-      <div class="w-full lg:w-1/2">
-        <ol class="space-y-6 text-lg list-none p-0">
-          <li
-            class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary transition duration-300 hover:shadow-xl hover:scale-[1.01] text-gray-900 font-extrabold"
-          >
-            <span class="font-bold text-primary mr-3">1.</span> INTRODUCTION
-          </li>
-          <li
-            class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary transition duration-300 hover:shadow-xl hover:scale-[1.01] text-gray-900 font-extrabold"
-          >
-            <span class="font-bold text-primary mr-3">2.</span> WHY SCHOOLS CHOOSE US
-          </li>
-          <li
-            class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary transition duration-300 hover:shadow-xl hover:scale-[1.01] text-gray-900 font-extrabold"
-          >
-            <span class="font-bold text-primary mr-3">3.</span> A BOLD REVOLUTION
-          </li>
-          <li
-            class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary transition duration-300 hover:shadow-xl hover:scale-[1.01] text-gray-900 font-extrabold"
-          >
-            <span class="font-bold text-primary mr-3">4.</span> EXCUSES
-          </li>
-          <li
-            class="p-3 bg-white rounded-xl shadow-lg border-l-4 border-primary transition duration-300 hover:shadow-xl hover:scale-[1.01] text-gray-900 font-extrabold"
-          >
-            <span class="font-bold text-primary mr-3">5.</span> ADDED BENEFITS
-          </li>
-        </ol>
-
-   <img
-  src="logo.jpeg"
-  alt="Surbhidhar Logo"
-  class="w-48 h-auto rounded-lg shadow-xl border-2 border-white ml-12 mt-2 block transform transition duration-300 hover:scale-105"
-  style="object-fit: contain;"
-  onerror="this.onerror=null; this.src='https://placehold.co/180x60/cccccc/333333?text=Logo';"
-/>
-
-
-
-
-
-
-
-      </div>
-
-      <div class="w-full lg:w-1/2 order-first lg:order-none">
-        <div
-          class="relative w-full aspect-square rounded-2xl overflow-hidden shadow-2xl bg-gray-50 border-4 border-primary/20"
-        >
-          <img
-            src="outline.png"
-            alt="Visual representation of the presentation outline"
-            class="full-fit-contain-image p-4"
-            onerror="this.onerror=null; this.src='https://placehold.co/600x600/cccccc/333333?text=Image+Placeholder';"
-          />
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
+    <!-- INTRODUCTION SECTION -->
     <section id="introduction" class="relative pt-20 pb-12 bg-white">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8">
-    <div class="text-center mb-8">
-      <h2 class="text-4xl md:text-5xl font-black text-gray-900 tracking-tight leading-tight">INTRODUCTION</h2>
-      <div class="w-20 h-1 bg-secondary mx-auto mt-3 rounded-full"></div>
-    </div>
-
-    <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
-      <div class="w-full md:w-1/2">
-        <div class="p-6 sm:p-8 bg-primary text-white rounded-2xl shadow-lg border-b-4 border-secondary">
-          <p class="text-xl sm:text-2xl font-semibold leading-snug uppercase">
-            WANT TO PREPARE YOUR STUDENTS FOR
-            <strong class="text-secondary">NEET, JEE, OR CET</strong> WITHOUT SENDING THEM OUTSIDE THE
-            SCHOOL?
-            <br /><br />
-            WANT YOUR TEACHERS TO <strong class="text-secondary">CONFIDENTLY</strong> DELIVER
-            COMPETITIVE EXAM CONTENT — WITHOUT THE STRESS OF
-            <strong class="text-secondary">SEPARATE COACHING</strong>?
-            <br /><br />
-            WANT YOUR SCHOOL TO BE KNOWN NOT JUST FOR BOARD RESULTS, BUT FOR PRODUCING
-            <strong class="text-secondary">TOPPERS</strong>?
-            <br /><br />
-            <span class="block mt-6 text-lg italic font-normal text-gray-200 uppercase">
-              IF YES, THEN THIS STORY IS YOUR STORY.
-            </span>
-          </p>
-        </div>
-      </div>
-
-      <div class="w-full md:w-1/2 flex flex-col items-center md:items-end">
-        <div
-          class="w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-secondary/20 flex items-center justify-center"
-          style="max-height:50vh;"
-        >
-          <img
-            src="intro.png"
-            alt="Introduction visual"
-            class="max-w-full max-h-[50vh] object-contain"
-            onerror="this.onerror=null; this.src='https://placehold.co/900x650/cccccc/333333?text=Image+Placeholder';"
-          />
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h2 class="text-4xl md:text-5xl font-black text-gray-900">INTRODUCTION</h2>
+          <div class="w-20 h-1 bg-secondary mx-auto mt-3 rounded-full"></div>
         </div>
 
-        <img
-          src="logo.jpeg"
-          alt="Surbhidhar Logo"
-          class="w-36 h-auto rounded-lg shadow-md border-2 border-white mt-4"
-          style="max-width: 160px;"
-          onerror="this.onerror=null; this.src='https://placehold.co/160x60/cccccc/333333?text=Logo';"
-        />
-      </div>
-    </div>
-  </div>
-</section>
+        <div class="flex flex-col md:flex-row items-start gap-8 md:gap-12">
+          
+          <!-- LEFT CONTENT -->
+          <div class="w-full md:w-1/2">
+            <div class="p-6 sm:p-8 bg-primary text-white rounded-2xl shadow-lg border-b-4 border-secondary">
+              <p class="text-xl sm:text-2xl font-semibold leading-snug uppercase">
+                WANT TO PREPARE YOUR STUDENTS FOR
+                <strong class="text-secondary">NEET, JEE, OR CET</strong> WITHOUT SENDING THEM OUTSIDE THE SCHOOL?
+                <br /><br />
+                WANT YOUR TEACHERS TO <strong class="text-secondary">CONFIDENTLY</strong> DELIVER COMPETITIVE EXAM CONTENT — WITHOUT EXTRA COACHING?
+                <br /><br />
+                WANT YOUR SCHOOL TO BE KNOWN NOT JUST FOR BOARD RESULTS, BUT FOR PRODUCING
+                <strong class="text-secondary">TOPPERS</strong>?
+                <br /><br />
+                <span class="block mt-6 text-lg italic font-normal text-gray-200 uppercase">
+                  IF YES, THEN THIS STORY IS YOUR STORY.
+                </span>
+              </p>
+            </div>
+          </div>
 
+          <!-- RIGHT IMAGE -->
+          <div class="w-full md:w-1/2 flex flex-col items-center md:items-end">
+            <div class="w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-secondary/20 flex items-center justify-center" style="max-height:50vh;">
+              <picture>
+                <source media="(max-width:767px)" srcset="intro.webp">
+                <img src="intro.png"
+                     alt="Introduction Visual"
+                     class="max-w-full max-h-[50vh] object-contain" />
+              </picture>
+            </div>
+
+            <img src="logo.jpeg"
+                 alt="Surbhidhar Logo"
+                 class="site-logo w-36 h-auto rounded-lg shadow-md border-2 border-white mt-4" />
+          </div>
+
+        </div>
+      </div>
+    </section>
+    <!-- WHY SCHOOLS CHOOSE US -->
     <section id="whyus" class="py-16 bg-gray-100 min-h-[90vh] flex flex-col justify-center">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        
         <div class="text-center mb-8">
           <h2 class="text-4xl md:text-5xl font-black text-primary tracking-tight leading-tight uppercase">
             WHY SCHOOLS CHOOSE US
@@ -359,20 +206,28 @@
         </div>
 
         <div class="flex flex-col lg:flex-row gap-10 items-start">
+
+          <!-- LEFT CONTENT -->
           <div class="w-full lg:w-1/2 flex flex-col justify-start space-y-6">
+            
             <div class="p-6 sm:p-8 bg-white rounded-2xl shadow-2xl border-t-4 border-secondary/70">
               <p class="text-xl font-bold text-gray-800 mb-4 leading-snug">WE HAVE SEEN IT ALL:</p>
+
               <ul class="space-y-2 text-lg text-gray-700 list-none p-0 ml-4">
                 <li class="flex items-start">
                   <span class="text-secondary font-extrabold mr-3 text-2xl">1.</span>
                   <span class="font-semibold">Brilliant students lost to <strong>distance and cost</strong>.</span>
                 </li>
+
                 <li class="flex items-start">
                   <span class="text-secondary font-extrabold mr-3 text-2xl">2.</span>
                   <span class="font-semibold"><strong>Leaking roofs in labs</strong> (infrastructure limitations).</span>
                 </li>
               </ul>
-              <p class="mt-6 text-xl font-black text-primary italic leading-snug">THAT'S WHO WE BUILT FOR.</p>
+
+              <p class="mt-6 text-xl font-black text-primary italic leading-snug">
+                THAT'S WHO WE BUILT FOR.
+              </p>
             </div>
 
             <div class="p-6 sm:p-8 bg-primary text-white rounded-2xl shadow-xl">
@@ -381,14 +236,17 @@
                   <span class="text-secondary text-2xl mr-3">✓</span>
                   <span class="font-medium">Developed <strong>inside a school</strong></span>
                 </li>
+
                 <li class="flex items-start">
                   <span class="text-secondary text-2xl mr-3">✓</span>
                   <span class="font-medium">Co-created with <strong>real teachers</strong></span>
                 </li>
+
                 <li class="flex items-start">
                   <span class="text-secondary text-2xl mr-3">✓</span>
                   <span class="font-medium"><strong>Curriculum-aligned</strong> and <strong>exam focused</strong></span>
                 </li>
+
                 <li class="flex items-start">
                   <span class="text-secondary text-2xl mr-3">✓</span>
                   <span class="font-medium">Affordable for <strong>private, aided and government school.</strong></span>
@@ -397,34 +255,34 @@
             </div>
           </div>
 
+          <!-- RIGHT IMAGE -->
           <div class="w-full lg:w-1/2 flex flex-col items-center lg:items-end mt-4 lg:mt-0">
-            <div
-  class="relative w-full lg:w-4/5 rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-primary/20"
-  style="height: 55vh;"
->
-  <img
-    src="marketgap.png"
-    alt="Image illustrating why schools choose Surbhidhar"
-    class="w-full h-full object-contain bg-black"
-    onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/333333?text=Placeholder+Image+for+Why+Us';"
-  />
-</div>
+            <div class="relative w-full lg:w-4/5 rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-primary/20" style="height: 55vh;">
+              <picture>
+                <source media="(max-width:767px)" srcset="marketgap.webp">
+                <img src="marketgap.png"
+                     alt="Why Schools Choose Us"
+                     class="w-full h-full object-contain bg-black" />
+              </picture>
+            </div>
 
-
-            <img
-              src="logo.jpeg"
-              alt="Surbhidhar Logo"
-              class="w-32 h-auto rounded-lg shadow-xl border-2 border-white mt-3 -translate-y-4 -translate-x-4 transform transition duration-300 hover:scale-105"
-              onerror="this.onerror=null; this.src='https://placehold.co/192x70/cccccc/333333?text=Logo+Space';"
-            />
+            <img src="logo.jpeg"
+                 alt="Surbhidhar Logo"
+                 class="site-logo w-32 h-auto rounded-lg shadow-xl border-2 border-white mt-3 -translate-y-4 -translate-x-4" />
           </div>
+
         </div>
       </div>
     </section>
 
+
+
+    <!-- BOLD REVOLUTION -->
     <section class="relative pt-16 pb-16 bg-white min-h-[90vh] flex items-center overflow-hidden" id="bold-revolution">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 z-10">
         <div class="flex flex-col md:flex-row items-center justify-center gap-10">
+
+          <!-- LEFT TEXT -->
           <div class="w-full md:w-1/2 order-2 md:order-1 text-center md:text-left space-y-8">
             <p class="text-4xl sm:text-5xl font-blacker leading-tight text-primary">
               WHAT WE DEVELOPED:
@@ -439,31 +297,28 @@
             </p>
           </div>
 
+          <!-- RIGHT IMAGE -->
           <div class="w-full md:w-1/2 order-1 md:order-2 flex flex-col items-center">
-            <div
-              class="relative w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-secondary/20"
-              style="height: 50vh;"
-            >
-              <img
-                src="empower.png"
-                alt="Visualizing the Bold Revolution"
-                class="full-fit-image"
-                onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/333333?text=Image+for+Revolution';"
-              />
+            <div class="relative w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-secondary/20" style="height: 50vh;">
+              <picture>
+                <source media="(max-width:767px)" srcset="empower.webp">
+                <img src="empower.png"
+                     alt="Visualizing the Bold Revolution"
+                     class="full-fit-image" />
+              </picture>
             </div>
 
-            <img
-              src="logo.jpeg"
-              alt="Surbhidhar Educational Services Logo"
-              class="w-48 h-auto rounded-lg shadow-xl border-2 border-white mt-6 transform transition duration-300 hover:scale-105"
-              onerror="this.onerror=null; this.src='https://placehold.co/192x70/cccccc/333333?text=Logo';"
-            />
+            <img src="logo.jpeg"
+                 alt="Surbhidhar Logo"
+                 class="site-logo w-48 h-auto rounded-lg shadow-xl border-2 border-white mt-6" />
           </div>
+
         </div>
       </div>
     </section>
-
+    <!-- EXCUSES SECTION -->
     <section id="excuses" class="py-16 bg-white min-h-[90vh] flex flex-col justify-start">
+
       <div class="bg-primary text-white py-10 shadow-2xl">
         <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
           <h2 class="text-4xl sm:text-5xl lg:text-6xl font-blacker tracking-tight leading-tight uppercase">
@@ -474,143 +329,162 @@
       </div>
 
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 mt-12 flex flex-col lg:flex-row gap-10 items-start">
+
+        <!-- LEFT TEXT -->
         <div class="w-full lg:w-1/2 flex flex-col justify-start space-y-4">
           <ul class="space-y-4 text-xl text-gray-700 list-none p-0">
+
             <li class="flex items-start">
               <span class="text-primary font-extrabold mr-3 text-2xl">✓</span>
               <span class="font-semibold"><strong>80% OF INDIAN STUDENTS</strong> live outside metros.</span>
             </li>
+
             <li class="flex items-start">
               <span class="text-primary font-extrabold mr-3 text-2xl">✓</span>
               <span class="font-semibold">Coaching is <strong>expensive, distant, or ineffective</strong>.</span>
             </li>
+
             <li class="flex items-start">
               <span class="text-primary font-extrabold mr-3 text-2xl">✓</span>
               <span class="font-semibold">Coaching centers <strong>thrive</strong>; schools are <strong>left behind</strong>.</span>
             </li>
+
             <li class="flex items-start">
               <span class="text-primary font-extrabold mr-3 text-2xl">✓</span>
-              <span class="font-semibold">It's not that the system is <strong>broken</strong>; it's <strong>that it's ignored</strong>.</span>
+              <span class="font-semibold">It's not that the system is <strong>broken</strong>; it's <strong>ignored</strong>.</span>
             </li>
+
             <li class="flex items-start">
               <span class="text-primary font-extrabold mr-3 text-2xl">✓</span>
               <span class="font-semibold">Schools, the <strong>most stable learning hub</strong>, are <strong>excluded</strong>.</span>
             </li>
+
           </ul>
 
-          <img
-            src="logo.jpeg"
-            alt="Surbhidhar Logo"
-            class="w-48 h-auto rounded-lg shadow-xl border-2 border-white mt-8 mx-auto transform transition duration-300 hover:scale-105"
-            onerror="this.onerror=null; this.src='https://placehold.co/192x70/cccccc/333333?text=Logo+Space';"
-          />
+          <img src="logo.jpeg"
+               alt="Surbhidhar Logo"
+               class="site-logo w-48 h-auto rounded-lg shadow-xl border-2 border-white mt-8 mx-auto" />
+
         </div>
 
+        <!-- RIGHT IMAGE -->
         <div class="w-full lg:w-1/2 flex flex-col items-center mt-4 lg:mt-0">
-          <div
-            class="relative w-full lg:w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-primary/20"
-            style="height: 55vh;"
-          >
-            <img
-              src="turth.png"
-              alt="Image showing the disparity between metro and non-metro education"
-              class="full-fit-image"
-              onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/333333?text=Image+of+Market+Gap';"
-            />
+          <div class="relative w-full lg:w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-primary/20"
+               style="height: 55vh;">
+
+            <picture>
+              <source media="(max-width:767px)" srcset="turth.webp">
+              <img src="turth.png"
+                   alt="Metro vs Rural Education Gap"
+                   class="full-fit-image" />
+            </picture>
+
           </div>
         </div>
+
       </div>
+
     </section>
 
+
+
+
+    <!-- ADDED BENEFITS (PART 1) -->
     <section id="added-benefits" class="relative py-10 bg-gray-50 min-h-[90vh] flex flex-col justify-start">
-  <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-10">
-    <div class="text-center mb-10">
-      <h2 class="text-4xl md:text-5xl font-black text-secondary tracking-tight leading-tight uppercase">
-        PROVIDE ACTUAL SOLUTION OF PROBLEM
-      </h2>
-      <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
-    </div>
 
-    <div class="flex flex-col lg:flex-row items-start gap-8">
-      <div class="w-full lg:w-1/2 flex flex-col justify-start space-y-6">
-        <ul class="space-y-6 text-2xl text-gray-700 list-none p-0">
-          <li class="flex items-start">
-            <span class="text-primary font-extrabold mr-3 text-3xl">✓</span>
-            <span class="font-bold text-gray-900">Students don't have to migrate for coaching</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary font-extrabold mr-3 text-3xl">✓</span>
-            <span class="font-bold text-gray-900">Teachers gain subject-specific confidence</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary font-extrabold mr-3 text-3xl">✓</span>
-            <span class="font-bold text-gray-900">Principals gain control with performance dashboards</span>
-          </li>
-          <li class="flex items-start">
-            <span class="text-primary font-extrabold mr-3 text-3xl">✓</span>
-            <span class="font-bold text-gray-900">Parents save costs and stay connected</span>
-          </li>
-        </ul>
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 pt-10">
 
-        <h2 class="text-3xl sm:text-4xl font-blacker text-primary text-left leading-snug uppercase pt-6">
-          WE DON'T JUST OFFER TOOLS. WE RESTORE DIGNITY AND CLARITY TO THE ENTIRE LEARNING PROCESS.
-        </h2>
-      </div>
-
-      <div class="w-full lg:w-1/2 flex flex-col items-center mt-4 lg:mt-0">
-        <div
-          class="relative w-full lg:w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-primary/20"
-          style="height: 45vh;"
-        >
-          <img
-            src="benefits.png"
-            alt="Image representing the solution and added benefits"
-            class="full-fit-image"
-            onerror="this.onerror=null; this.src='https://placehold.co/600x400/cccccc/333333?text=Image+for+Benefits';"
-          />
+        <div class="text-center mb-10">
+          <h2 class="text-4xl md:text-5xl font-black text-secondary tracking-tight leading-tight uppercase">
+            PROVIDE ACTUAL SOLUTION OF PROBLEM
+          </h2>
+          <div class="w-24 h-1 bg-primary mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <img
-  src="logo.jpeg"
-  alt="Surbhidhar Logo"
-  class="w-48 h-auto rounded-lg shadow-xl border-2 border-white mt-3 ml-1 transform transition duration-300 hover:scale-105"
-  style="object-fit: contain;"
-  onerror="this.onerror=null; this.src='https://placehold.co/192x70/cccccc/333333?text=Logo+Space';"
-/>
+        <div class="flex flex-col lg:flex-row items-start gap-8">
 
+          <!-- LEFT TEXT -->
+          <div class="w-full lg:w-1/2 flex flex-col justify-start space-y-6">
+
+            <ul class="space-y-6 text-2xl text-gray-700 list-none p-0">
+
+              <li class="flex items-start">
+                <span class="text-primary font-extrabold mr-3 text-3xl">✓</span>
+                <span class="font-bold text-gray-900">Students don't have to migrate for coaching</span>
+              </li>
+
+              <li class="flex items-start">
+                <span class="text-primary font-extrabold mr-3 text-3xl">✓</span>
+                <span class="font-bold text-gray-900">Teachers gain subject-specific confidence</span>
+              </li>
+
+              <li class="flex items-start">
+                <span class="text-primary font-extrabold mr-3 text-3xl">✓</span>
+                <span class="font-bold text-gray-900">Principals gain control with performance dashboards</span>
+              </li>
+
+              <li class="flex items-start">
+                <span class="text-primary font-extrabold mr-3 text-3xl">✓</span>
+                <span class="font-bold text-gray-900">Parents save costs and stay connected</span>
+              </li>
+
+            </ul>
+
+            <h2 class="text-3xl sm:text-4xl font-blacker text-primary leading-snug uppercase pt-6">
+              WE DON'T JUST OFFER TOOLS. WE RESTORE DIGNITY AND CLARITY TO THE ENTIRE LEARNING PROCESS.
+            </h2>
+
+          </div>
+
+          <!-- RIGHT IMAGE -->
+          <div class="w-full lg:w-1/2 flex flex-col items-center mt-4 lg:mt-0">
+
+            <div class="relative w-full lg:w-full rounded-2xl overflow-hidden shadow-2xl bg-gray-200 border-4 border-primary/20"
+                 style="height: 45vh;">
+
+              <picture>
+                <source media="(max-width:767px)" srcset="benefits.webp">
+                <img src="benefits.png"
+                     alt="Benefits Visual"
+                     class="full-fit-image" />
+              </picture>
+
+            </div>
+
+            <img src="logo.jpeg"
+                 alt="Surbhidhar Logo"
+                 class="site-logo w-48 h-auto rounded-lg shadow-xl border-2 border-white mt-3 ml-1" />
+          </div>
+
+        </div>
 
       </div>
-    </div>
-  </div>
-</section>
-
-
-
+    </section>
+    <!-- NO MORE EXCUSE -->
     <section id="no-more-excuse" class="relative py-20 bg-primary min-h-[70vh] flex items-center overflow-hidden">
       <div class="container mx-auto px-4 sm:px-6 lg:px-8 z-10 text-white">
+
         <div class="relative text-center mb-16">
-          <img
-            src="logo.jpeg"
-            alt="Surbhidhar Logo"
-            class="w-32 h-auto rounded-lg shadow-xl border-2 border-white absolute top-0 right-0 hidden lg:block transform transition duration-300 hover:scale-105 z-20"
-            onerror="this.onerror=null; this.src='https://placehold.co/128x45/cccccc/333333?text=Logo';"
-          />
+          <img src="logo.jpeg"
+               alt="Surbhidhar Logo"
+               class="site-logo w-32 h-auto rounded-lg shadow-xl border-2 border-white absolute top-0 right-0 hidden lg:block" />
 
           <h2 class="text-5xl sm:text-6xl lg:text-7xl font-blacker tracking-tight leading-tight uppercase text-white drop-shadow-lg">
             NO MORE EXCUSE
           </h2>
+
           <div class="w-32 h-1 bg-white mx-auto mt-6 rounded-full"></div>
         </div>
 
         <div class="flex flex-col lg:flex-row items-center gap-10">
+
+          <!-- LEFT TEXT -->
           <div class="w-full lg:w-1/2 text-center lg:text-left space-y-8">
             <p class="text-3xl sm:text-4xl font-semibold leading-tight">
               We built SURBHIDHAR EDUCATIONAL SERVICES so <strong class="font-extrabold">no teacher</strong> has to say:
             </p>
 
-            <blockquote
-              class="text-3xl sm:text-4xl font-black italic text-secondary bg-white p-5 rounded-xl shadow-2xl border-l-8 border-accent-light"
-            >
+            <blockquote class="text-3xl sm:text-4xl font-black italic text-secondary bg-white p-5 rounded-xl shadow-2xl border-l-8 border-accent-light">
               "Sorry beta, humare school mein coaching <strong class="font-blacker">nahi</strong> hoti."
             </blockquote>
 
@@ -618,327 +492,196 @@
               And <strong class="font-extrabold">no child</strong> has to think:
             </p>
 
-            <blockquote
-              class="text-3xl sm:text-4xl font-black italic text-primary bg-accent-light p-5 rounded-xl shadow-2xl border-l-8 border-white"
-            >
+            <blockquote class="text-3xl sm:text-4xl font-black italic text-primary bg-accent-light p-5 rounded-xl shadow-2xl border-l-8 border-white">
               "If I lived in a city, <strong class="font-blacker">I'd have had a chance</strong>."
             </blockquote>
           </div>
 
+          <!-- RIGHT IMAGE -->
           <div class="w-full lg:w-1/2 flex flex-col items-center space-y-8">
-            <p
-              class="text-2xl sm:text-3xl font-extrabold uppercase text-white text-center px-4 bg-secondary/70 rounded-lg py-3 shadow-xl"
-            >
-              If you believe schools are where real transformation begins - We're ready to stand with you.
+            <p class="text-2xl sm:text-3xl font-extrabold uppercase text-white text-center px-4 bg-secondary/70 rounded-lg py-3 shadow-xl">
+              If you believe schools are where real transformation begins – we're ready to stand with you.
             </p>
 
             <div class="relative w-full aspect-video rounded-2xl overflow-hidden shadow-2xl bg-gray-700 border-4 border-white/50">
-              <img
-                src="noexcuse.png"
-                alt="Image representing commitment and partnership"
-                class="w-full h-full object-contain opacity-70 bg-black"
-                onerror="this.onerror=null; this.src='https://placehold.co/600x300/1e3a8a/ffffff?text=Image+of+Commitment';"
-              />
+              <picture>
+                <source media="(max-width:767px)" srcset="noexcuse.webp">
+                <img src="noexcuse.png"
+                     alt="Commitment visual"
+                     class="w-full h-full object-contain opacity-70 bg-black" />
+              </picture>
             </div>
           </div>
+
         </div>
+
       </div>
     </section>
 
-    <section
-      id="bold-revolution"
-      class="relative h-screen max-h-[900px] bg-white flex flex-col justify-center items-center overflow-hidden py-6"
-    >
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
-        <div class="text-center mb-8 shrink-0">
-          <h2 class="text-5xl sm:text-6xl lg:text-7xl font-blacker tracking-tight leading-tight uppercase text-primary drop-shadow-sm">
+
+
+    <!-- ===== REPLACEMENT: BOLD REVOLUTION (fixed & responsive) ===== -->
+    <section id="bold-revolution-main" class="relative bg-white py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h2 class="text-4xl sm:text-5xl lg:text-6xl font-blacker leading-tight uppercase text-primary">
             A BOLD REVOLUTION
           </h2>
           <div class="w-24 h-2 bg-secondary mx-auto mt-4 rounded-full"></div>
         </div>
 
-        <div class="flex flex-col lg:flex-row items-center justify-between gap-8 lg:gap-16 h-auto">
-          <div class="w-full lg:w-1/2 flex flex-col justify-between space-y-8">
-            <ul class="space-y-6 list-none">
-              <li
-                class="flex items-center bg-gray-50 p-4 rounded-xl border-l-8 border-secondary shadow-md transform transition hover:scale-105"
-              >
-                <div class="bg-primary text-white rounded-full p-2 mr-4 shrink-0">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <p class="text-xl sm:text-2xl text-gray-800 font-medium">
-  <span class="font-blacker text-primary text-2xl block sm:inline">FUTURE-READY LEARNING</span> within classrooms
-</p>
+        <div class="flex flex-col lg:flex-row items-start lg:items-center gap-10 lg:gap-16">
+          <!-- Left: bullets -->
+          <div class="w-full lg:w-1/2 space-y-6">
+            <div class="bg-gray-50 p-4 rounded-xl border-l-8 border-secondary shadow-sm">
+              <p class="text-xl font-medium">
+                <span class="font-blacker text-primary text-2xl">FUTURE-READY LEARNING</span> within classrooms
+              </p>
+            </div>
 
-              </li>
+            <div class="bg-gray-50 p-4 rounded-xl border-l-8 border-secondary shadow-sm">
+              <p class="text-xl font-medium">
+                Teacher empowered with <span class="font-blacker text-primary">expert-designed tools</span>
+              </p>
+            </div>
 
-              <li
-                class="flex items-center bg-gray-50 p-4 rounded-xl border-l-8 border-secondary shadow-md transform transition hover:scale-105"
-              >
-                <div class="bg-primary text-white rounded-full p-2 mr-4 shrink-0">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <p class="text-xl sm:text-2xl text-gray-800 font-medium">
-                  Teacher empowered with <span class="font-blacker text-primary">expert-designed tools</span>
-                </p>
-              </li>
+            <div class="bg-gray-50 p-4 rounded-xl border-l-8 border-secondary shadow-sm">
+              <p class="text-xl font-medium">
+                Principals equipped with <span class="font-blacker text-primary">real-time performance data</span>
+              </p>
+            </div>
 
-              <li
-                class="flex items-center bg-gray-50 p-4 rounded-xl border-l-8 border-secondary shadow-md transform transition hover:scale-105"
-              >
-                <div class="bg-primary text-white rounded-full p-2 mr-4 shrink-0">
-                  <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M5 13l4 4L19 7"></path>
-                  </svg>
-                </div>
-                <p class="text-xl sm:text-2xl text-gray-800 font-medium">
-                  Principals equipped with <span class="font-blacker text-primary">real-time performance data</span>
-                </p>
-              </li>
-            </ul>
-
-            <div class="mt-4 bg-primary text-white p-6 rounded-2xl shadow-2xl relative overflow-hidden">
-              <div class="absolute top-0 left-0 w-2 h-full bg-secondary"></div>
-              <p class="text-lg sm:text-xl lg:text-2xl font-bold italic leading-relaxed text-center">
-                "We weren't building another edtech product. We were building a movement. To bring competitive prep
-                <span class="text-secondary font-blacker uppercase">back to the classroom</span>."
+            <div class="mt-4 bg-primary text-white p-6 rounded-2xl shadow">
+              <p class="text-base sm:text-lg font-bold italic text-center">
+                "We weren't building another edtech product — we were building a movement to bring competitive prep back to the classroom."
               </p>
             </div>
           </div>
 
-          <div class="w-full lg:w-1/2 flex flex-col items-center justify-center relative h-full">
-            <div class="relative w-full h-[40vh] lg:h-[50vh] rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-200 group mb-6">
-              <img
-                src="bold.png"
-                alt="Revolution in the classroom"
-                class="full-fit-image transition duration-700 group-hover:scale-105"
-                onerror="this.onerror=null; this.src='https://placehold.co/600x500/f3f4f6/1e3a8a?text=Space+For+Revolution+Image';"
-              />
+          <!-- Right: image -->
+          <div class="w-full lg:w-1/2 flex items-center justify-center">
+            <div class="w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-gray-200" style="min-height: 260px;">
+              <picture>
+                <source media="(max-width:767px)" srcset="bold.webp">
+                <img src="bold.png" alt="Revolution in the classroom" class="w-full h-full object-cover" style="min-height:260px;" />
+              </picture>
             </div>
-
-            <img
-              src="logo.jpeg"
-              alt="Surbhidhar Logo"
-              class="w-32 h-auto rounded-lg shadow-xl border-2 border-white transform transition duration-300 hover:scale-105 z-20"
-              onerror="this.onerror=null; this.src='https://placehold.co/128x45/cccccc/333333?text=Logo';"
-            />
           </div>
         </div>
       </div>
     </section>
 
-    <section
-      id="pedagogy-learning"
-      class="relative h-screen max-h-[900px] bg-gray-100 flex flex-col justify-center items-center overflow-hidden py-8"
-    >
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
-        <div class="text-center mb-10 shrink-0">
-          <h2 class="text-5xl sm:text-6xl lg:text-7xl font-blacker tracking-tight leading-tight uppercase text-secondary drop-shadow-sm">
-            PEDAGOGY OF LEARNING?
-          </h2>
-          <div class="w-24 h-2 bg-primary mx-auto mt-4 rounded-full"></div>
+
+    <!-- PEDAGOGY OF LEARNING (fixed heights removed, better spacing) -->
+    <section id="pedagogy-learning" class="relative bg-gray-100 py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-blacker text-secondary">PEDAGOGY OF LEARNING?</h2>
+          <div class="w-20 h-2 bg-primary mx-auto mt-3 rounded-full"></div>
         </div>
 
-        <div class="flex flex-col lg:flex-row items-start justify-between gap-8 lg:gap-16 h-auto">
-          <div class="w-full lg:w-1/2 flex flex-col justify-start space-y-4">
-            <div class="p-4 sm:p-5 bg-white rounded-xl shadow-lg border-l-4 border-secondary transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl sm:text-2xl text-gray-800 font-black">
-                1. Books with <strong class="text-primary">Learning Models</strong>
-              </p>
+        <div class="flex flex-col lg:flex-row gap-8 lg:gap-16 items-start">
+          <div class="w-full lg:w-1/2 space-y-4">
+            <div class="p-4 bg-white rounded-xl shadow">
+              <p class="font-black text-lg">1. Books with <strong class="text-primary">Learning Models</strong></p>
             </div>
-
-            <div class="p-4 sm:p-5 bg-white rounded-xl shadow-lg border-l-4 border-secondary transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl sm:text-2xl text-gray-800 font-black">
-                2. <strong class="text-primary">Testing and Evaluation</strong>
-              </p>
+            <div class="p-4 bg-white rounded-xl shadow">
+              <p class="font-black text-lg">2. <strong class="text-primary">Testing and Evaluation</strong></p>
             </div>
-
-            <div class="p-4 sm:p-5 bg-white rounded-xl shadow-lg border-l-4 border-secondary transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl sm:text-2xl text-gray-800 font-black">
-                3. <strong class="text-primary">Future Ready Faculty</strong>
-              </p>
+            <div class="p-4 bg-white rounded-xl shadow">
+              <p class="font-black text-lg">3. <strong class="text-primary">Future Ready Faculty</strong></p>
             </div>
-
-            <div class="p-4 sm:p-5 bg-white rounded-xl shadow-lg border-l-4 border-primary transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl sm:text-2xl text-gray-800 font-black">
-                4. Real time <strong class="text-secondary">Reports & Dashboards</strong>
-              </p>
+            <div class="p-4 bg-white rounded-xl shadow">
+              <p class="font-black text-lg">4. Real time <strong class="text-secondary">Reports & Dashboards</strong></p>
             </div>
-
-            <div class="p-4 sm:p-5 bg-white rounded-xl shadow-lg border-l-4 border-primary transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl sm:text-2xl text-gray-800 font-black">
-                5. <strong class="text-secondary">Data Augmentation</strong> for School, Teachers, Students & Parents
-              </p>
+            <div class="p-4 bg-white rounded-xl shadow">
+              <p class="font-black text-lg">5. <strong class="text-secondary">Data Augmentation</strong> for School, Teachers, Students & Parents</p>
             </div>
           </div>
 
-          <div class="w-full lg:w-1/2 flex flex-col items-center justify-center relative h-full">
-            <div class="relative w-full h-[45vh] rounded-3xl overflow-hidden shadow-2xl border-4 border-secondary group">
-              <img
-                src="pedagogy.png"
-                alt="Diagram comparing pedagogy and learning outcomes"
-                class="full-fit-image transition duration-700 group-hover:scale-105"
-                onerror="this.onerror=null; this.src='https://placehold.co/600x600/ffffff/1e3a8a?text=Image+of+Learning+Model';"
-              />
+          <div class="w-full lg:w-1/2 flex items-center justify-center">
+            <div class="w-full rounded-3xl overflow-hidden shadow-2xl border-4 border-secondary" style="min-height:260px;">
+              <picture>
+                <source media="(max-width:767px)" srcset="pedagogy.webp">
+                <img src="pedagogy.png" alt="Pedagogy diagram" class="w-full h-full object-cover" style="min-height:260px;" />
+              </picture>
             </div>
-
-            <img
-              src="logo.jpeg"
-              alt="Surbhidhar Logo"
-              class="w-40 h-auto rounded-lg shadow-xl border-2 border-white mt-6 transform transition duration-300 hover:scale-105"
-              onerror="this.onerror=null; this.src='https://placehold.co/160x55/cccccc/333333?text=Logo+Space';"
-            />
           </div>
         </div>
       </div>
     </section>
 
-    <section
-      id="added-benefits-2"
-      class="relative h-screen max-h-[950px] bg-white flex flex-col justify-center items-center overflow-hidden py-8"
-    >
-      <div class="container mx-auto px-4 sm:px-6 lg:px-8 h-full flex flex-col justify-center">
-        <div class="text-center mb-6 shrink-0">
-          <h2 class="text-5xl sm:text-6xl lg:text-7xl font-blacker tracking-tight leading-tight uppercase text-primary drop-shadow-sm">
-            ADDED BENEFITS
-          </h2>
-          <div class="w-24 h-2 bg-secondary mx-auto mt-4 rounded-full"></div>
+
+    <!-- ADDED BENEFITS - SECOND PART (kept spacing consistent) -->
+    <section id="added-benefits-2" class="relative bg-white py-20">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8">
+        <div class="text-center mb-8">
+          <h2 class="text-3xl sm:text-4xl lg:text-5xl font-blacker text-primary">ADDED BENEFITS</h2>
+          <div class="w-20 h-2 bg-secondary mx-auto mt-3 rounded-full"></div>
         </div>
 
-        <div class="mb-6 shrink-0 text-center">
-          <h3 class="text-2xl sm:text-3xl font-blacker text-primary leading-tight uppercase">
-            VALUE PROPOSITION: <span class="text-secondary">OUTCOMES MATTER</span>
-          </h3>
-          <p class="text-lg sm:text-xl text-gray-700 font-medium mt-2">
-            WE MEASURE SUCCESS NOT BY PROMISES, BUT BY EVIDENCE-BACKED OUTCOMES.
-          </p>
-        </div>
-
-        <div class="flex flex-col lg:flex-row items-start justify-between gap-6 h-auto">
-          <div class="w-full lg:w-1/2 flex flex-col justify-start space-y-4">
-            <div class="bg-gray-50 p-4 rounded-xl shadow-lg border-l-4 border-secondary space-y-2 transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl text-gray-900 font-black">
-                <span class="text-primary font-black mr-2">1.</span>
-                <span class="font-blacker text-primary uppercase">SCHOOL EMPOWERMENT</span>:
-              </p>
-              <p class="text-lg text-gray-700 ml-6">
-                Improved admissions pipelines and <strong>reduced brand leakage</strong> to external coaching centres.
-              </p>
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-4 rounded-xl shadow">
+              <p class="font-black text-lg"><span class="text-primary">1.</span> <span class="font-blacker">SCHOOL EMPOWERMENT</span>: Improved admissions pipelines and reduced brand leakage.</p>
             </div>
-
-            <div class="bg-gray-50 p-4 rounded-xl shadow-lg border-l-4 border-secondary space-y-2 transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl text-gray-900 font-black">
-                <span class="text-primary font-black mr-2">2.</span>
-                <span class="font-blacker text-primary uppercase">ACADEMIC GAINS</span>:
-              </p>
-              <p class="text-lg text-gray-700 ml-6">
-                Students recorded an <strong>8-12% improvement</strong> in mock test scores, aligned with NCERT's findings that structured blended learning improves results by <strong>20%+</strong>.
-              </p>
+            <div class="bg-gray-50 p-4 rounded-xl shadow">
+              <p class="font-black text-lg"><span class="text-primary">2.</span> <span class="font-blacker">ACADEMIC GAINS</span>: 8-12% improvement in mock test scores.</p>
             </div>
-
-            <div class="bg-gray-50 p-4 rounded-xl shadow-lg border-l-4 border-secondary space-y-2 transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl text-gray-900 font-black">
-                <span class="text-primary font-black mr-2">3.</span>
-                <span class="font-blacker text-primary uppercase">PARENT TRUST</span>:
-              </p>
-              <p class="text-lg text-gray-700 ml-6">
-                Transparent dashboards and <strong>auditable reports</strong> increase parent confidence, resulting in higher NPS scores.
-              </p>
+            <div class="bg-gray-50 p-4 rounded-xl shadow">
+              <p class="font-black text-lg"><span class="text-primary">3.</span> <span class="font-blacker">PARENT TRUST</span>: Transparent dashboards and auditable reports.</p>
             </div>
           </div>
 
-          <div class="w-full lg:w-1/2 flex flex-col justify-start space-y-4 pt-0 lg:pt-0">
-            <div class="bg-gray-50 p-4 rounded-xl shadow-lg border-l-4 border-secondary space-y-2 transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl text-gray-900 font-black">
-                <span class="text-primary font-black mr-2">4.</span>
-                <span class="font-blacker text-primary uppercase">TEACHER EMPOWERMENT</span>:
-              </p>
-              <p class="text-lg text-gray-700 ml-6">
-                <strong>25-30% reduction in workload</strong> thanks to lesson packs, adaptive testing, and automated reporting.
-              </p>
+          <div class="space-y-6">
+            <div class="bg-gray-50 p-4 rounded-xl shadow">
+              <p class="font-black text-lg"><span class="text-primary">4.</span> <span class="font-blacker">TEACHER EMPOWERMENT</span>: 25-30% reduction in workload.</p>
+            </div>
+            <div class="bg-gray-50 p-4 rounded-xl shadow">
+              <p class="font-black text-lg"><span class="text-primary">5.</span> <span class="font-blacker">REDUCED STUDENT STRESS</span>: Consolidating prep within one timetable.</p>
             </div>
 
-            <div class="bg-gray-50 p-4 rounded-xl shadow-lg border-l-4 border-secondary space-y-2 transform transition duration-300 hover:shadow-xl hover:scale-[1.01]">
-              <p class="text-xl text-gray-900 font-black">
-                <span class="text-primary font-black mr-2">5.</span>
-                <span class="font-blacker text-primary uppercase">REDUCED STUDENT STRESS</span>:
-              </p>
-              <p class="text-lg text-gray-700 ml-6">
-                Addresses the dual burden causing high stress (70% of aspirants) by consolidating preparation within <strong>one timetable</strong>.
-              </p>
-            </div>
-
-            <div class="pt-6 w-full flex justify-center lg:justify-end">
-              <img
-                src="logo.jpeg"
-                alt="Surbhidhar Logo"
-                class="w-40 h-auto rounded-lg shadow-xl border-2 border-white transform transition duration-300 hover:scale-105"
-                onerror="this.onerror=null; this.src='https://placehold.co/160x55/cccccc/333333?text=Logo+Space';"
-              />
+            <div class="pt-4 flex justify-center lg:justify-end">
+              <img src="logo.jpeg" alt="Surbhidhar Logo" class="site-logo w-40 h-auto rounded-lg shadow border-2 border-white" />
             </div>
           </div>
         </div>
       </div>
     </section>
-    <section id="contact" class="relative py-20 bg-primary min-h-[50vh] flex flex-col justify-center items-center text-white">
-    <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
-        
-        <h2 class="text-5xl sm:text-6xl lg:text-7xl font-blacker tracking-tight leading-tight uppercase text-secondary mb-8 drop-shadow-lg">
-            LET'S EMPOWER YOUR CLASSROOMS
-        </h2>
-        
-        <p class="text-xl sm:text-2xl font-medium mb-12 max-w-3xl mx-auto">
-            Join the <strong>Surbhidhar Educational Services</strong> movement. We are ready to partner with you to deliver high-quality content, <strong>real-time performance analytics</strong>, and structured support to your students and teachers.
-        </p>
 
-        <div class="flex flex-col md:flex-row justify-center items-center gap-10 md:gap-16 mt-10">
 
-            <div class="text-center">
-                <h3 class="text-3xl font-blacker uppercase text-secondary mb-3">Call or WhatsApp</h3>
-                <p class="text-4xl sm:text-5xl font-blacker text-white leading-tight mb-1">
-                    8077032938
-                </p>
-                <p class="text-4xl sm:text-5xl font-blacker text-white leading-tight">
-                    8279401041
-                </p>
-            </div>
-            
-            <div class="hidden md:block w-0.5 h-32 bg-secondary rounded-full"></div>
+    <!-- CONTACT (kept same, slight spacing fix) -->
+    <section id="contact" class="relative bg-primary py-20 text-white">
+      <div class="container mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-blacker text-secondary mb-6">LET'S EMPOWER YOUR CLASSROOMS</h2>
+        <p class="max-w-3xl mx-auto text-lg sm:text-xl mb-8">Join the <strong>Surbhidhar Educational Services</strong> movement. We deliver high-quality content, real-time performance analytics, and structured support.</p>
 
-            <div class="flex flex-col gap-6">
-                <div class="text-center">
-                    <h3 class="text-3xl font-blacker uppercase text-secondary mb-3">Email Us</h3>
-                    <p class="text-xl sm:text-2xl font-extrabold text-white">
-                        Surbhidhareducational@gmail.com
-                    </p>
-                </div>
-                
-                <div class="text-center">
-                    <h3 class="text-3xl font-blacker uppercase text-secondary mb-3">Our Office</h3>
-                    <p class="text-xl font-semibold text-gray-300">
-                        89, New Mohan Puri, Meerut, UP
-                    </p>
-                </div>
-            </div>
+        <div class="flex flex-col md:flex-row gap-8 justify-center items-center">
+          <div>
+            <h3 class="text-2xl font-blacker text-secondary mb-2">Call or WhatsApp</h3>
+            <p class="text-2xl font-blacker">8077032938</p>
+            <p class="text-2xl font-blacker">8279401041</p>
+          </div>
+
+          <div class="h-0 md:h-auto md:w-0.5 bg-secondary hidden md:block"></div>
+
+          <div>
+            <h3 class="text-2xl font-blacker text-secondary mb-2">Email Us</h3>
+            <p class="text-lg font-extrabold">SurbhidharEducational@gmail.com</p>
+            <h3 class="text-2xl font-blacker text-secondary mt-4 mb-2">Our Office</h3>
+            <p class="text-lg">89, New Mohan Puri, Meerut, UP</p>
+          </div>
         </div>
 
-        <img
-            src="logo.jpeg"
-            alt="Surbhidhar Educational Services Logo"
-            class="w-40 h-auto rounded-lg shadow-xl border-4 border-white absolute bottom-4 left-4 transform transition duration-300 hover:scale-105"
-            onerror="this.onerror=null; this.src='https://placehold.co/160x55/cccccc/333333?text=Logo+Space';"
-        />
-        
-    </div>
-</section>
-    <footer class="bg-gray-800 text-white mt-10">
+        <div class="mt-8">
+          <img src="logo.jpeg" alt="Surbhidhar Logo" class="site-logo w-36 h-auto rounded-lg shadow border-4 border-white" />
+        </div>
+      </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-800 text-white">
       <div class="container mx-auto px-4 py-6 text-center text-sm">
         &copy; 2024 Surbhidhar Educational Services. All rights reserved.
       </div>
     </footer>
-  </body>
-</html>
